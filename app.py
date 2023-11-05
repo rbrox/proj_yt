@@ -7,7 +7,7 @@ youtube = build('youtube', 'v3', developerKey=api_key)
 
 request = youtube.search().list(
             part='snippet', 
-            maxResults=10, 
+            maxResults=1, 
             regionCode='US',
             q='python'
         )
@@ -15,4 +15,4 @@ response = request.execute()
 
 print(json.dumps(response, indent=4))
 with open('response.json', 'w') as f:
-    f.write(json.dumps(response, indent=4))
+    json.dump(response, f)
